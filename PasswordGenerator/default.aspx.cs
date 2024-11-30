@@ -18,5 +18,10 @@ namespace PasswordGenerator
         {
             //code to generate hash
         }
+
+        protected void btnVerify_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
