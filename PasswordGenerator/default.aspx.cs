@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Security.Cryptography;
 
 namespace PasswordGenerator
 {
@@ -21,7 +22,7 @@ namespace PasswordGenerator
 
         protected void btnVerify_Click(object sender, EventArgs e)
         {
-
+            //code to verify hash
         }
     }
 }

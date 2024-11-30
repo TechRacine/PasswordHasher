@@ -29,6 +29,7 @@
         }
       }
     </style>
+      <script src="js/default.js"></script>
   </head>
 <body>
     <form id="form1" runat="server">
@@ -39,27 +40,30 @@
       <span class="fs-4">Password Hasher</span>
     </a>
   </header>
-
+    
   <main>
     <p class="fs-5 col-md-12">This page allows you to securely hash your password using advanced encryption algorithms. Simply enter your password, and the tool will generate a hashed version, ensuring your sensitive data remains protected. Ideal for securely storing passwords without exposing the original text.</p>
-    <div class="col-12 mb-3">
+    <div class="col-6 mb-3">
         <label for="txtPassword" class="form-label">Password </label>
         <input type="password" runat="server" class="form-control" id="txtPassword" />
     </div>
-    
-    <div class="col-3">
+    <div class="col-6 mb-3">
+    <label for="txtSalt" class="form-label">Salt </label>
+    <input type="text" runat="server" class="form-control" id="txtSalt" />
+</div>
+    <div class="col-5">
     <asp:Button CssClass="w-100 btn btn-primary btn-lg" ID="btnGenerate" runat="server" OnClick="btnGenerate_Click" Text="Generate Hash" ></asp:Button>
     </div>
 
     <div class="col-12">
     <label for="resultHash" class="form-label">Hashed Password </label>
     <input type="text" runat="server" class="form-control" id="txtResultHash" />
-        <span title="Copy hashed password" style="cursor:pointer;"><svg aria-hidden="true" focusable="false" class="octicon octicon-copy" viewBox="0 0 16 16" width="16" height="16" fill="currentColor" style="display: inline-block; user-select: none; vertical-align: text-bottom; overflow: visible;"><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></svg>
+        <span title="Copy hashed password" onclick="return copyValue()" style="cursor:pointer;"><svg aria-hidden="true" focusable="false" class="octicon octicon-copy" viewBox="0 0 16 16" width="16" height="16" fill="currentColor" style="display: inline-block; user-select: none; vertical-align: text-bottom; overflow: visible;"><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></svg> Copy
             </span>
     </div>
     <p class="fs-5 col-md-12">Verify the generated hash is correct. Hashing the password again and compare against the above generated hash value.</p>
     <div class="col-12">
-        <div class="col-3">
+        <div class="col-5">
             <asp:Button CssClass="w-100 btn btn-primary btn-lg" runat="server" ID="btnVerify" Text="Verify Hash" OnClick="btnVerify_Click" ></asp:Button>
         </div>
     </div>
