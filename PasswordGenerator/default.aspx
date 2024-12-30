@@ -58,13 +58,13 @@
                 
                 <div class="col-12">
                     <div class="col-5">
-                        <asp:Button CssClass="w-100 btn btn-primary btn-lg" runat="server" ID="btnVerify" Text="Verify Hash" OnClick="btnVerify_Click" />                    
-                     <div class="col-6 p-3">
-                        <label for="res" class="form-label">Verify</label>
-                        <input type="text" runat="server" class="form-control" id="res" />
+                        <asp:Button CssClass="w-100 btn btn-secondary btn-lg" runat="server" ID="btnVerify" Text="Verify Hash" OnClick="btnVerify_Click" />                    
+                   </div>
+                    
+                        <div class="col-6 p-3">
+                        <label id="resultVal" runat="server" class="form-label"></label>
                      </div>
-                </div>
-                </div>
+                </div> 
             </main>
 
             <footer class="pt-5 my-5 text-muted border-top">
