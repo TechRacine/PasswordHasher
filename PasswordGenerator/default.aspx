@@ -72,12 +72,18 @@
             </footer>
         </div>
     </form>
+
     <script>
         function copyValue() {
-            var hashText = document.getElementById('<%= txtResultHash.ClientID %>'); 
-            hashText.select(); 
-            document.execCommand('copy');
-            alert('Hashed password copied to clipboard!'); 
+            var hashText = document.getElementById('<%= txtResultHash.ClientID %>');
+
+            // Use Clipboard API to copy the text
+            navigator.clipboard.writeText(hashText.value).then(function () {
+                alert('Hashed password copied to clipboard!');
+            }).catch(function (err) {
+                console.error('Error copying to clipboard: ', err);
+                alert('Failed to copy hashed password to clipboard.');
+            });
         }
     </script>
 </body>

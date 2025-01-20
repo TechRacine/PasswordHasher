@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Security.Cryptography;
 using System.Text;
+
 namespace PasswordGenerator
 {
     public partial class _default : System.Web.UI.Page
@@ -14,6 +15,7 @@ namespace PasswordGenerator
         {
             // No changes needed for Page_Load
         }
+
         protected void btnGenerate_Click(object sender, EventArgs e)
         {
             try
@@ -85,10 +87,10 @@ namespace PasswordGenerator
         {
             try
             {
-                using (var pbkdf2 = new Rfc2898DeriveBytes(password, salt, 10000)) 
+                using (var pbkdf2 = new Rfc2898DeriveBytes(password, salt, 10000))
                 {
-                    byte[] hash = pbkdf2.GetBytes(64);  
-                    return Convert.ToBase64String(hash); 
+                    byte[] hash = pbkdf2.GetBytes(64);
+                    return Convert.ToBase64String(hash);
                 }
             }
             catch (Exception ex)
