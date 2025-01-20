@@ -76,8 +76,6 @@
     <script>
         function copyValue() {
             var hashText = document.getElementById('<%= txtResultHash.ClientID %>');
-
-            // Use Clipboard API to copy the text
             navigator.clipboard.writeText(hashText.value).then(function () {
                 alert('Hashed password copied to clipboard!');
             }).catch(function (err) {
